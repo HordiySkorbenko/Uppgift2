@@ -24,6 +24,9 @@ def load_sales(filename):
                 products[product] = sales
                 
     return only_products, products
+
+def format_curency(value):
+    return locale.currency(value, grouping=True)
                 
 def analyze_sales_data(values, products):    
     #TODO: Hitta den mest sålda produkten (TIPS! Använd Counter från collections)
@@ -33,7 +36,7 @@ def analyze_sales_data(values, products):
     most_lucrative_product = max(products, key = products.get)
     
     print(f"Mest sålda produkt: {most_common_product[0]}, Antal: {most_common_product[1]} ")
-    print(f"Mest lukrativa produkt: \"{most_lucrative_product}\" med försäljning på {locale.currency(products.get(most_lucrative_product),grouping=True)}") #TODO: BONUS: kan du skapa en funktion som skriver ut rätt formaterad valuta istället för detta?
+    print(f"Mest lukrativa produkt: \"{most_lucrative_product}\" med försäljning på {format_curency(products.get(most_lucrative_product))}") #TODO: BONUS: kan du skapa en funktion som skriver ut rätt formaterad valuta istället för detta?
 
 
 # Sätt språkinställning till svenska (Sverige) används för att skriva ut formaterad valuta
